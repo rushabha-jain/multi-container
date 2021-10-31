@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build Dev Image
-        run: docker build -t client_test -f Dockerfile.dev ./client
+        run: docker build -t client_test -f ./client/Dockerfile.dev ./client
         
       - name: Test Dev Image
         run: docker run client_test npm run test
