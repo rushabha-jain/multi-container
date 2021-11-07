@@ -65,7 +65,7 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
           application_name: multi-docker
           environment_name: Multidocker-env
-          version_label: 12-8
+          version_label: 12-9
           region: ap-south-1
           deployment_package: deploy.zip
   
