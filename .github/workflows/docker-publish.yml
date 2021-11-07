@@ -52,6 +52,7 @@ jobs:
         run: docker push csz3qe/multi-worker
   deploy:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
