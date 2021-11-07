@@ -50,4 +50,19 @@ jobs:
         
       - name: Publish worker image
         run: docker push csz3qe/multi-worker
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Zip deployable content
+        run: zip -r deploy.zip docker-compose.yml
+      - name: Deploy to EB
+        uses: einaregilsson/beanstalk-deploy@v18
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
+          application_name: multi-docker
+          environment_name: Multidocker-env
+          version_label: 12
+          region: ap-south-1
+          deployment_package: deploy.zip
   
