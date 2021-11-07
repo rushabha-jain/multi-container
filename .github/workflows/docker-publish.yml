@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Zip deployable content
-        run: zip -r deploy.zip docker-compose.yml
+        run: zip deploy.zip docker-compose.yml
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v18
         with:
